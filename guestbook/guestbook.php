@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 require_once('Message.php');
+require_once('validation.php');
 
 function init() {
     // TODO: berichten ophalen
@@ -14,7 +15,7 @@ function addMessage() {
         $_POST['message'],
         date('d-m-Y'));
 
-    file_put_contents($path . 'berichten.json', json_encode($message), FILE_APPEND);
+    file_put_contents($path . 'berichten.json', json_encode($message) . ",\n", FILE_APPEND);
 }
 
 function getMessages() {
@@ -24,19 +25,16 @@ function getMessages() {
     return $file;
 }
 
-function deleteMessage() {
+function deleteMessage($message) {
     // TODO: verwijder bericht
+    $temp = file_get_contents('./berichten/berichten.json');
+    
 }
 
 function updateMessage() {
     // TODO: bewerk bericht
 }
 
-function validate() {
-    // TODO: $_POST[] check
-    addMessage();
-}
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    validate(); 
+   addMessage(validate($_POST)); 
 }

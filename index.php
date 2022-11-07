@@ -17,5 +17,9 @@ require_once('./guestbook/guestbook.php');
         <input type="text" name="message">
         <input type="submit" name="submit">
     </form>
+
+    <div>
+        <?php echo getMessages(); ?>
+    </div>
 </body>
 </html>
