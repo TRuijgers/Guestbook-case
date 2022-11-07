@@ -10,11 +10,11 @@ require_once('./guestbook/guestbook.php');
     <title>guestbook</title>
 </head>
 <body>
-    <form method="post" action="/">
+    <form method="post" action="">
         <p>Laat hier je bericht achter.</p>
-        <input type="text" name="message">
         <input type="text" name="firstName">
         <input type="text" name="lastName">
+        <input type="text" name="message">
         <input type="submit" name="submit">
     </form>
 </body>

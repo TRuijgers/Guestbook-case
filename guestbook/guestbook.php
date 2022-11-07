@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-require_once('./Messages.php');
+require_once('Message.php');
 
 function init() {
     // TODO: berichten ophalen
@@ -12,7 +12,7 @@ function addMessage() {
     $message = new Message($_POST['firstName'], 
         $_POST['lastName'], 
         $_POST['message'],
-        $_POST['postDate']);
+        date('d-m-Y'));
 
     file_put_contents($path . 'berichten.json', json_encode($message), FILE_APPEND);
 }
