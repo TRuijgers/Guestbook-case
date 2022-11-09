@@ -8,6 +8,7 @@ require_once('./guestbook/guestbook.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>guestbook</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <form method="post" action="">
@@ -22,7 +23,13 @@ require_once('./guestbook/guestbook.php');
     </form>
 
     <div>
-        <?php echo getMessages(); ?>
+        <?php $m = getMessages();
+        foreach ($m as $value){
+            foreach ($value as $k=>$v){
+                echo $k . " : " . $v . "<br>";
+            }
+        }
+         ?>
     </div>
 </body>
 </html>
