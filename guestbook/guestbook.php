@@ -18,8 +18,8 @@ function addMessage() {
 
     $message = new Message($_POST['firstName'], 
         $_POST['lastName'], 
-        $_POST['message'],
-        date('d-m-Y'));
+        date('d-m-Y'),
+        $_POST['message']);
 
     array_push($messageArray, $message);
     file_put_contents($path . 'berichten.json', json_encode($messageArray, JSON_PRETTY_PRINT));

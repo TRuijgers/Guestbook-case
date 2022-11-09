@@ -9,3 +9,53 @@
 html, body {
   height: 100%;
 }/*# sourceMappingURL=styles.css.map */
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: .5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin: .2rem .5rem;
+}
+
+textarea {
+  resize: none;
+}
+
+#messages {
+  width: 90%;
+  margin: .2rem auto;
+}
+
+#messages > div {
+  width: 100%;
+  margin: .2rem 1rem;
+  border: 2px solid black;
+}
+
+#messages span {
+  margin: .2rem .5rem;
+}
+
+#messages span:last-of-type {
+  float: right;
+}
+
+#messages p {
+  margin: .2rem .5rem;
+}

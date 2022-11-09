@@ -4,10 +4,10 @@ require_once('IMessage.php');
 class Message implements \JsonSerializable, IMessage {
     private $firstName;
     private $lastName;
-    private $message;
     private $postDate;
+    private $message;
 
-    function __construct($firstName, $lastName, $message, $postDate) {
+    function __construct($firstName, $lastName, $postDate, $message ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->message = $message;
