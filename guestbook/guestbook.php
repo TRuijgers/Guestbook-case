@@ -7,27 +7,33 @@ function init() {
     getMessages();
 }
 
+function getFilePath() : string {
+    return './berichten/';
+}
+
 function addMessage() {
     // TODO: berichten toevoegen
-    $path = './berichten/';
+    $path = getFilePath();
     $message = new Message($_POST['firstName'], 
         $_POST['lastName'], 
         $_POST['message'],
         date('d-m-Y'));
 
-    file_put_contents($path . 'berichten.json', json_encode($message) . ",\n", FILE_APPEND);
+    file_put_contents($path . 'berichten.json', json_encode($message, JSON_PRETTY_PRINT), FILE_APPEND);
 }
 
 function getMessages() {
     // TODO: berichten 
-    $path = './berichten/';
+    $path = getFilePath();
     $file = file_get_contents($path . 'berichten.json');
     return $file;
 }
 
 function deleteMessage($message) {
     // TODO: verwijder bericht
-    $temp = file_get_contents('./berichten/berichten.json');
+    $path = getFilePath();
+    $file = json_decode(file_get_contents($path . 'berichten.json'));
+    array_splice($file, array_search($message), 1);
     
 }
 
