@@ -23,7 +23,11 @@ require_once('./guestbook/guestbook.php');
     </form>
 
     <div>
-        <?php echo getMessages(); ?>
+        <?php $m = getMessages();
+        foreach ($m as $value){
+            var_dump($value);
+        }
+         ?>
     </div>
 </body>
 </html>

@@ -9,20 +9,21 @@ function init() {
 
 function addMessage() {
     // TODO: berichten toevoegen
+    $messageArray = getMessages();
     $path = './berichten/';
     $message = new Message($_POST['firstName'], 
         $_POST['lastName'], 
         $_POST['message'],
         date('d-m-Y'));
-
-    file_put_contents($path . 'berichten.json', json_encode($message) . ",\n", FILE_APPEND);
+    array_push($messageArray, $message);
+    file_put_contents($path . 'berichten.json', json_encode($messageArray));
 }
 
 function getMessages() {
     // TODO: berichten 
     $path = './berichten/';
     $file = file_get_contents($path . 'berichten.json');
-    return $file;
+    return (array) json_decode($file, null, 512, JSON_OBJECT_AS_ARRAY);
 }
 
 function deleteMessage($message) {
