@@ -25,7 +25,9 @@ require_once('./guestbook/guestbook.php');
     <div>
         <?php $m = getMessages();
         foreach ($m as $value){
-            var_dump($value);
+            foreach ($value as $k=>$v){
+                echo $k . " : " . $v . "<br>";
+            }
         }
          ?>
     </div>
