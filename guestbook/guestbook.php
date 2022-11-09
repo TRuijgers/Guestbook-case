@@ -14,19 +14,23 @@ function getFilePath() : string {
 function addMessage() {
     // TODO: berichten toevoegen
     $path = getFilePath();
+    $messageArray = getMessages();
+
     $message = new Message($_POST['firstName'], 
         $_POST['lastName'], 
         $_POST['message'],
         date('d-m-Y'));
 
-    file_put_contents($path . 'berichten.json', json_encode($message, JSON_PRETTY_PRINT), FILE_APPEND);
+    array_push($messageArray, $message);
+    file_put_contents($path . 'berichten.json', json_encode($messageArray, JSON_PRETTY_PRINT));
+
 }
 
 function getMessages() {
     // TODO: berichten 
     $path = getFilePath();
     $file = file_get_contents($path . 'berichten.json');
-    return $file;
+    return (array) json_decode($file, null, 512, JSON_OBJECT_AS_ARRAY);
 }
 
 function deleteMessage($message) {
@@ -42,5 +46,5 @@ function updateMessage() {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-   addMessage(validate($_POST)); 
+    addMessage(confirmInput($_POST)); 
 }
