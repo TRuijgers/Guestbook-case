@@ -1,5 +1,5 @@
 <?php
-require_once('IUser');
+require_once('IUser.php');
 
 class User implements IUser {
     private $firstName;

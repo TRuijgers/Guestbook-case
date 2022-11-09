@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-require_once('Message.php');
+require_once('classes/Message.php');
 require_once('validation.php');
 
 function init() {
@@ -37,8 +37,7 @@ function deleteMessage($message) {
     // TODO: verwijder bericht
     $path = getFilePath();
     $file = json_decode(file_get_contents($path . 'berichten.json'));
-    array_splice($file, array_search($message), 1);
-    
+    // array_splice($file, array_search($message), 1);
 }
 
 function updateMessage() {

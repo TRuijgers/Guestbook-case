@@ -1,11 +1,15 @@
 <?php declare(strict_types=1);
-require_once('IMessage');
+require_once('IMessage.php');
 
 class Message implements \JsonSerializable, IMessage {
+    private $firstName;
+    private $lastName;
     private $message;
     private $postDate;
 
-    function __construct($message, $postDate) {
+    function __construct($firstName, $lastName, $message, $postDate) {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
         $this->message = $message;
         $this->postDate = $postDate;
     }
@@ -19,7 +23,7 @@ class Message implements \JsonSerializable, IMessage {
         return $this->message;
     }
 
-    public function getPostDate() : date {
-        return date('d-m-Y', $this->postDate);
+    public function getPostDate() : string {
+        return $this->postDate;
     }
 }
