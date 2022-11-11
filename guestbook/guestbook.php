@@ -45,5 +45,5 @@ function updateMessage() {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    addMessage(confirmInput($_POST)); 
+    confirmInput($_POST); 
 }

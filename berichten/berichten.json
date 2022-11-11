@@ -1,20 +1,20 @@
 [
     {
-        "message": "test",
-        "postDate": "one"
+        "firstName": "Henk",
+        "lastName": "Schaap",
+        "message": "Chocolaatje",
+        "postDate": "11-11-2022"
     },
     {
-        "message": "test",
-        "postDate": "one"
+        "firstName": "Henk",
+        "lastName": "Schaap",
+        "message": "Chocolaatje",
+        "postDate": "11-11-2022"
     },
     {
-        "message": "test",
-        "postDate": "one"
-    },
-    {
-        "firstName": "test",
-        "lastName": "one",
-        "message": "test message",
-        "postDate": "09-11-2022"
+        "firstName": "Henk",
+        "lastName": "Schaap",
+        "message": "Chocolaatje",
+        "postDate": "11-11-2022"
     }
 ]
