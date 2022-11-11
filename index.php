@@ -25,19 +25,26 @@ require_once('./guestbook/guestbook.php');
                 <span class="error-empty"><?php echo $lastNameError;?></span>
 
                 <label for="message" >Message</label>
-                <input type="text" name="message" value="<?php if (isset($_POST['message'])) echo $_POST['message'];?>">
+                <textarea type="text" name="message" value="<?php if (isset($_POST['message'])) echo $_POST['message'];?>">
+                </textarea>
                 <span class="error-empty"><?php echo $messageError;?></span>
 
                 <input type="submit" name="submit">
             </form>
         </section>
         <section>
-            <div>
-                <?php $m = getMessages();
-                foreach ($m as $value){
+            <div id="messages">
+                <?php $m = Guestbook::getMessages();
+                foreach ($m as $value) {
+                    echo "<div>";
                     foreach ($value as $k=>$v){
-                        echo $k . " : " . $v . "<br>";
+                        if ($k != 'message'){
+                            echo "<span>${v}</span>";
+                        } else {
+                            echo "<p>${v}</p>";
+                        }
                     }
+                    echo "</div>";
                 }
                 ?>
             </div>
