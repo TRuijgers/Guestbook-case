@@ -10,26 +10,38 @@ require_once('./guestbook/guestbook.php');
     <title>guestbook</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <form method="post" action="">
-        <p>Laat hier je bericht achter.</p>
-        <label for="firstName" >First Name</label>
-        <input type="text" name="firstName" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>">
-        <label for="lastName" >Last Name</label>
-        <input type="text" name="lastName" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>">
-        <label for="message" >Message</label>
-        <input type="text" name="message" value="<?php if (isset($_POST['message'])) echo $_POST['message'];?>">
-        <input type="submit" name="submit">
-    </form>
 
-    <div>
-        <?php $m = getMessages();
-        foreach ($m as $value){
-            foreach ($value as $k=>$v){
-                echo $k . " : " . $v . "<br>";
-            }
-        }
-         ?>
-    </div>
+<body>
+    <main>
+        <section>
+            <form method="post" action="">
+                <p>Laat hier je bericht achter.</p>
+                <label for="firstName" >First Name</label>
+                <input type="text" name="firstName" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>">
+                <span class="error-empty"><?php echo $firstNameError;?></span>
+
+                <label for="lastName" >Last Name</label>
+                <input type="text" name="lastName" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>">
+                <span class="error-empty"><?php echo $lastNameError;?></span>
+
+                <label for="message" >Message</label>
+                <input type="text" name="message" value="<?php if (isset($_POST['message'])) echo $_POST['message'];?>">
+                <span class="error-empty"><?php echo $messageError;?></span>
+
+                <input type="submit" name="submit">
+            </form>
+        </section>
+        <section>
+            <div>
+                <?php $m = getMessages();
+                foreach ($m as $value){
+                    foreach ($value as $k=>$v){
+                        echo $k . " : " . $v . "<br>";
+                    }
+                }
+                ?>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
