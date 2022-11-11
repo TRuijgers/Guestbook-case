@@ -33,9 +33,8 @@ require_once('./guestbook/guestbook.php');
                 <input type="submit" name="submit">
             </form>
         </section>
-        <section>
-            <div id="messages">
-                <?php $m = Guestbook::getMessages();
+        <section id="messages">
+            <?php $m = Guestbook::getMessages();
                 foreach ($m as $value) {
                     echo "<div>";
                     foreach ($value as $k=>$v){
@@ -47,7 +46,6 @@ require_once('./guestbook/guestbook.php');
                     }
                     echo "</div>";
                 }
-                echo "</div>";
             ?>
         </section>
     </main>
