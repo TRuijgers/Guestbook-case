@@ -28,9 +28,9 @@ require_once('./guestbook/guestbook.php');
 
                 <label for="message" >Message</label>                
                 <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
-                <textarea name="message" value="<?php if (isset($_POST['message'])) echo $_POST['message'];?>"></textarea>
+                <textarea name="message"><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
 
-                <input type="submit" name="submit">
+                <input type="submit" name="submit" value="Submit">
             </form>
         </section>
         <section id="messages">
@@ -38,8 +38,12 @@ require_once('./guestbook/guestbook.php');
                 foreach ($m as $value) {
                     echo "<div>";
                     foreach ($value as $k=>$v){
-                        if ($k != 'message'){
+                        if ($k == 'firstName'){
+                            echo "<div><span>${v}</span>";
+                        } elseif ($k == 'lastName'){
                             echo "<span>${v}</span>";
+                        } elseif ($k == 'postDate'){
+                            echo "<span>${v}</span></div>";
                         } else {
                             echo "<p>${v}</p>";
                         }
