@@ -1,3 +1,67 @@
+$soft-orange: #ffb347;
+
+body {
+    background-color: $soft-orange;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    text-align: center;
+}
+  
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+  
+main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: .5rem;
+}
+  
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin: .2rem .5rem;
+}
+  
+textarea {
+    resize: none;
+}
+
 .error-empty {
     color: red;
+}
+
+#message-form {
+    margin-top: 100px;
+    border-radius: 10px;
+    background-color: white;
+    label {
+        display: flex;
+    }
+}
+
+#messages {
+    margin-top: 100px;
+    width: 90%;
+    margin: .2rem auto;
+    background-color: white;
+    span {
+        margin: .2rem .5rem;
+    }
+    span {
+        float: right;
+    }
+    > div {
+        width: 100%;
+        margin: .2rem 1rem;
+        border: 2px solid black;
+    }
+    p {
+        margin: .2rem .5rem;
+    }
 }

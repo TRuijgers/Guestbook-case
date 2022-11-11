@@ -11,23 +11,24 @@ require_once('./guestbook/guestbook.php');
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
+
 <body>
     <main>
-        <section>
+        <section id="message-form">
+            <h1>Gastenboek</h1>
             <form method="post" action="">
                 <p>Laat hier je bericht achter.</p>
-                <label for="firstName" >First Name</label>
+                <label for="firstName" >First Name</label>                
+                <span class="error-empty"><?php if (isset($firstNameError)) echo $firstNameError;?></span>
                 <input type="text" name="firstName" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>">
-                <span class="error-empty"><?php echo $firstNameError;?></span>
 
-                <label for="lastName" >Last Name</label>
+                <label for="lastName" >Last Name</label>                 
+                <span class="error-empty"><?php if (isset($lastNameError)) echo $lastNameError;?></span>
                 <input type="text" name="lastName" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>">
-                <span class="error-empty"><?php echo $lastNameError;?></span>
 
-                <label for="message" >Message</label>
-                <textarea type="text" name="message" value="<?php if (isset($_POST['message'])) echo $_POST['message'];?>">
-                </textarea>
-                <span class="error-empty"><?php echo $messageError;?></span>
+                <label for="message" >Message</label>                
+                <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
+                <textarea name="message" value="<?php if (isset($_POST['message'])) echo $_POST['message'];?>"></textarea>
 
                 <input type="submit" name="submit">
             </form>
@@ -46,8 +47,8 @@ require_once('./guestbook/guestbook.php');
                     }
                     echo "</div>";
                 }
-                ?>
-            </div>
+                echo "</div>";
+            ?>
         </section>
     </main>
 </body>
