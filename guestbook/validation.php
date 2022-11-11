@@ -1,4 +1,6 @@
 <?php declare(strict_types=1);
+require_once('guestbook.php');
+
 function confirmInput($data){
     global $firstNameError; 
     global $lastNameError;
@@ -19,7 +21,7 @@ function confirmInput($data){
     }
 
     if (count($errorArray) == 0){
-        addMessage(validate($_POST)); 
+        validate($data); 
     } else {
         return $errorArray;
     }
@@ -32,5 +34,9 @@ function validate($data) {
         $value = htmlspecialchars($value);
         $data[$key] = $value;
     }
-    return $data;
+    Guestbook::addMessage($data);
+}
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    confirmInput($_POST); 
 }

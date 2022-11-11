@@ -2,48 +2,42 @@
 require_once('classes/Message.php');
 require_once('validation.php');
 
-function init() {
-    // TODO: berichten ophalen
-    getMessages();
-}
+class Guestbook {
+    public static function getFilePath() {
+        return './berichten/berichten.json';
+    }
 
-function getFilePath() : string {
-    return './berichten/';
-}
+    public static function addMessage($data) {
+        // TODO: berichten toevoegen
+        $path = Guestbook::getFilePath();
+        $messageArray = Guestbook::getMessages();
+    
+        $message = new Message($data['firstName'], 
+            $data['lastName'], 
+            date('d-m-Y'),
+            $data['message']);
+    
+        array_push($messageArray, $message);
+        file_put_contents($path, json_encode($messageArray, JSON_PRETTY_PRINT));
+        
+    }
 
-function addMessage() {
-    // TODO: berichten toevoegen
-    $path = getFilePath();
-    $messageArray = getMessages();
+    public static function getMessages() {
+        // TODO: berichten
+        $path = Guestbook::getFilePath();
+        $file = file_get_contents($path);
+        
+        return (array) json_decode($file, null, 512, JSON_OBJECT_AS_ARRAY);
+    }
 
-    $message = new Message($_POST['firstName'], 
-        $_POST['lastName'], 
-        date('d-m-Y'),
-        $_POST['message']);
+    public static function deleteMessage($message) {
+        // TODO: verwijder bericht
+        $path = Guestbook::getFilePath();
+        $file = json_decode(file_get_contents($path . 'berichten.json'));
+        // array_splice($file, array_search($message), 1);
+    }
 
-    array_push($messageArray, $message);
-    file_put_contents($path . 'berichten.json', json_encode($messageArray, JSON_PRETTY_PRINT));
-
-}
-
-function getMessages() {
-    // TODO: berichten 
-    $path = getFilePath();
-    $file = file_get_contents($path . 'berichten.json');
-    return (array) json_decode($file, null, 512, JSON_OBJECT_AS_ARRAY);
-}
-
-function deleteMessage($message) {
-    // TODO: verwijder bericht
-    $path = getFilePath();
-    $file = json_decode(file_get_contents($path . 'berichten.json'));
-    // array_splice($file, array_search($message), 1);
-}
-
-function updateMessage() {
-    // TODO: bewerk bericht
-}
-
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    confirmInput($_POST); 
+    public static function updateMessage() {
+        // TODO: bewerk bericht
+    }
 }
