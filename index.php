@@ -9,6 +9,7 @@ require_once('./guestbook/guestbook.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>guestbook</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="./scripts/main.js" defer></script>
 </head>
 
 
@@ -33,21 +34,17 @@ require_once('./guestbook/guestbook.php');
                 <input type="submit" name="submit" value="Submit">
             </form>
         </section>
+
         <section id="messages">
-            <?php $m = Guestbook::getMessages();
-                foreach ($m as $value) {
+            
+                <?php $messages = Guestbook::getMessages();
+                foreach ($messages as $message) {
                     echo "<div>";
-                    foreach ($value as $k=>$v){
-                        if ($k == 'firstName'){
-                            echo "<div><span>${v}</span>";
-                        } elseif ($k == 'lastName'){
-                            echo "<span>${v}</span>";
-                        } elseif ($k == 'postDate'){
-                            echo "<span>${v}</span></div>";
-                        } else {
-                            echo "<p>${v}</p>";
-                        }
-                    }
+                    echo "<span>${message['firstName']}</span>";
+                    echo "<span>${message['lastName']}</span>";
+                    echo "<span>${message['postDate']}</span>";
+                    echo "<button class=\"deleteMessage\">X</button>";
+                    echo "<p>${message['message']}</p>"; 
                     echo "</div>";
                 }
             ?>
