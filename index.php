@@ -12,29 +12,31 @@ require_once('./guestbook/guestbook.php');
     <script src="./scripts/main.js" defer></script>
 </head>
 
+
 <body>
     <main>
-        <section>
+        <section id="message-form">
+            <h1>Gastenboek</h1>
             <form method="post" action="">
                 <p>Laat hier je bericht achter.</p>
-                <label for="firstName" >First Name</label>
+                <label for="firstName" >First Name</label>                
+                <span class="error-empty"><?php if (isset($firstNameError)) echo $firstNameError;?></span>
                 <input type="text" name="firstName" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>">
-                <span class="error-empty"><?php echo $firstNameError;?></span>
 
-                <label for="lastName" >Last Name</label>
+                <label for="lastName" >Last Name</label>                 
+                <span class="error-empty"><?php if (isset($lastNameError)) echo $lastNameError;?></span>
                 <input type="text" name="lastName" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>">
-                <span class="error-empty"><?php echo $lastNameError;?></span>
 
-                <label for="message" >Message</label>
-                <textarea type="text" name="message" value="<?php if (isset($_POST['message'])) echo $_POST['message'];?>">
-                </textarea>
-                <span class="error-empty"><?php echo $messageError;?></span>
+                <label for="message" >Message</label>                
+                <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
+                <textarea name="message"><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
 
-                <input type="submit" name="submit">
+                <input type="submit" name="submit" value="Submit">
             </form>
         </section>
-        <section>
-            <div id="messages">
+
+        <section id="messages">
+            
                 <?php $messages = Guestbook::getMessages();
                 foreach ($messages as $message) {
                     echo "<div>";
@@ -45,8 +47,7 @@ require_once('./guestbook/guestbook.php');
                     echo "<p>${message['message']}</p>"; 
                     echo "</div>";
                 }
-                ?>
-            </div>
+            ?>
         </section>
     </main>
 </body>
