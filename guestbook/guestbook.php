@@ -18,11 +18,10 @@ class Guestbook {
             $data['message']);
     
         array_push($messageArray, $message);
-        file_put_contents($path, json_encode($messageArray, JSON_PRETTY_PRINT));
-        
+        file_put_contents($path, json_encode($messageArray, JSON_PRETTY_PRINT)); 
     }
 
-    public static function getMessages() {
+    public static function getMessages() : array {
         // TODO: berichten
         $path = Guestbook::getFilePath();
         $file = file_get_contents($path);
@@ -30,11 +29,12 @@ class Guestbook {
         return (array) json_decode($file, null, 512, JSON_OBJECT_AS_ARRAY);
     }
 
-    public static function deleteMessage($message) {
+    public static function deleteMessage() {
         // TODO: verwijder bericht
-        $path = Guestbook::getFilePath();
-        $file = json_decode(file_get_contents($path . 'berichten.json'));
+        // $path = Guestbook::getFilePath();
+        // $file = json_decode(file_get_contents($path . 'berichten.json'));
         // array_splice($file, array_search($message), 1);
+        return 'delete function';
     }
 
     public static function updateMessage() {
