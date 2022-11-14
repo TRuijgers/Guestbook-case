@@ -17,26 +17,36 @@ require_once('./guestbook/guestbook.php');
     <main>
         <section id="message-form">
             <h1>Gastenboek</h1>
-            <form method="post" action="">
+            <form method="post" action="" class="form-group">
                 <p>Laat hier je bericht achter.</p>
-                <label for="firstName" >First Name</label>                
+                <label for="firstName" class="form-label" >First Name</label>                
                 <span class="error-empty"><?php if (isset($firstNameError)) echo $firstNameError;?></span>
-                <input type="text" name="firstName" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>">
+                <input type="text" name="firstName" 
+                    class="form-control"
+                    value="<?php if (isset($_POST['firstName'])) {
+                         echo $_POST['firstName'];} ?>">
 
-                <label for="lastName" >Last Name</label>                 
+                <label for="lastName" class="form-label" >Last Name</label>                 
                 <span class="error-empty"><?php if (isset($lastNameError)) echo $lastNameError;?></span>
-                <input type="text" name="lastName" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>">
+                <input type="text" name="lastName" 
+                    class="form-control"
+                    value="<?php if (isset($_POST['lastName'])) {
+                    echo $_POST['lastName']; }?>">
 
-                <label for="message" >Message</label>                
+                <label for="message" class="form-label" >Message</label>                
                 <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
-                <textarea name="message"><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
+                <textarea name="message" class="form-control">
+                    <?php if (isset($_POST['message'])) { 
+                        echo $_POST['message']; }?>
+                </textarea>
 
-                <input type="submit" name="submit" value="Submit">
+                <button name="submit" class="btn btn-primary" value="Submit">
+                    submit
+                </button>
             </form>
         </section>
 
         <section id="messages">
-            
                 <?php $messages = Guestbook::getMessages();
                 foreach ($messages as $message) {
                     echo "<div>";
