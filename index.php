@@ -8,6 +8,8 @@ require_once('./guestbook/guestbook.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>guestbook</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <script src="./scripts/main.js" defer></script>
 </head>
@@ -36,7 +38,7 @@ require_once('./guestbook/guestbook.php');
         </section>
             
         <section id="messages">
-            <section id="pagination" class="pagination bg-light" >
+            <section id="pagination" class="pagination bg-light d-flex justify-content-center" >
                 <?php
                     $limit = 10;
                     $start = $_GET['page'] && $_GET['page'] > 1 ? 
@@ -66,7 +68,7 @@ require_once('./guestbook/guestbook.php');
                 foreach (array_slice($messages, $start - 1, $limit) as $message) {
                     echo "<div>";
                     echo "<span>${message['firstName']}</span>";
-                    echo "<span style=\"float:right\">${message['lastName']}</span>";
+                    echo "<span>${message['lastName']}</span>";
                     echo "<span>${message['postDate']}</span>";
                     echo "<button class=\"deleteMessage\">X</button>";
                     echo "<p>${message['message']}</p>"; 
