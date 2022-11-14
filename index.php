@@ -34,14 +34,39 @@ require_once('./guestbook/guestbook.php');
                 <input type="submit" name="submit" value="Submit">
             </form>
         </section>
-
+            
         <section id="messages">
+            <section id="pagination" class="pagination bg-light" >
+                <?php
+                    $limit = 10;
+                    $start = $_GET['page'] && $_GET['page'] > 1 ? 
+                        $_GET['page'] * $limit - $limit : 1;
+                    $page = $_GET['page'] ?? 1;
+
+                    $totalPages = ceil(count(Guestbook::getMessages()) / $limit);
+                    if ($page > 1) {
+                        echo "<button class=\"page-item\" 
+                            id=\"previous\">&laquo;</button>";
+                    }
+                    for($i = 0; $i < $totalPages; $i++) {
+                        $num = $i + 1;
+                        echo "<button class=\"page-item\">
+                            <a class=\"page-link\" href=\"/?page=${num}\">
+                             ${num}</a></button>";
+                    }
+                    if ($page < $totalPages){
+                        echo "<button class=\"page-item\" 
+                            id=\"next\">&raquo;</button>";
+                    }
+                ?>
+            </section>
             
                 <?php $messages = Guestbook::getMessages();
-                foreach ($messages as $message) {
+                
+                foreach (array_slice($messages, $start - 1, $limit) as $message) {
                     echo "<div>";
                     echo "<span>${message['firstName']}</span>";
-                    echo "<span>${message['lastName']}</span>";
+                    echo "<span style=\"float:right\">${message['lastName']}</span>";
                     echo "<span>${message['postDate']}</span>";
                     echo "<button class=\"deleteMessage\">X</button>";
                     echo "<p>${message['message']}</p>"; 
@@ -50,5 +75,28 @@ require_once('./guestbook/guestbook.php');
             ?>
         </section>
     </main>
+
+<script>
+window.addEventListener('load', () => {
+    const prevBtn = document.getElementById('previous');
+    const nextBtn = document.getElementById('next');
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            let page = <?php echo $page; ?> + 1;
+            window.location.href = window.location.protocol + "//" + 
+            window.location.hostname + `/?page=${page}`;
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            let page = <?php echo $page; ?> - 1 ;
+            window.location.href = window.location.protocol + "//" + 
+            window.location.hostname + `/?page=${page}`;
+        });
+    }
+});
+</script>
 </body>
 </html>
