@@ -1,3 +1,5 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 $soft-orange: #ffb347;
 
 body {
@@ -65,13 +67,17 @@ textarea {
             color: white;
             height: 30px;
             background-color: $soft-orange;
-            span:last-of-type {
-                float: right;
-            }
-            span:first-of-type {
-                margin-right: 5px;
-            }
         }
+        > span:last-of-type {
+            float: right;
+        }
+        > span:first-of-type {
+            margin-right: 5px;
+        }
+        > button {
+            float: right;
+        }
+        
     }
     p {
         margin:.5rem 0;
