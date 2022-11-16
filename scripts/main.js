@@ -1,7 +1,7 @@
 "use strict"
 
 let deleteBtns = document.querySelectorAll('deleteMessage');
-const messageDiv = document.getElementById('messages');
+const messageDiv = document.querySelector('#messages>div');
 
 window.addEventListener('load', () => {
     messageDiv.addEventListener('click', (event) => {
