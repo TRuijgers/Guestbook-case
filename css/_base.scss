@@ -1,9 +1,11 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
-
 $soft-orange: #ffb347;
+$deep-orange: #FC9A05;
+$light-blue: #D8EFF8;
+$sea-blue: #357D99;
+
 
 body {
-    background-color: $soft-orange;
+    background-color: $light-blue;
     font-family:Arial, Helvetica, sans-serif;
 }
 
@@ -12,6 +14,8 @@ header {
 }
   
 h1 {
+    font-weight: bold;
+    color: $sea-blue;
     font-size: 2.5rem;
     text-align: center;
 }
@@ -36,6 +40,9 @@ textarea {
     color: red;
 }
 
+#pagination {
+    background-color: white;
+}
 #message-form {
     width: 80%;
     margin-top: 100px;
@@ -43,7 +50,7 @@ textarea {
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
-    background-color: white;
+    background-color: $deep-orange;
     label {
         display: flex;
     }
