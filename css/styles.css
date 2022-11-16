@@ -1,5 +1,5 @@
 body {
-  background-color: #ffb347;
+  background-color: #D8EFF8;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -8,6 +8,8 @@ header {
 }
 
 h1 {
+  font-weight: bold;
+  color: #357D99;
   font-size: 2.5rem;
   text-align: center;
 }
@@ -32,6 +34,10 @@ textarea {
   color: red;
 }
 
+#pagination {
+  background-color: white;
+}
+
 #message-form {
   width: 80%;
   margin-top: 100px;
@@ -39,7 +45,7 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  background-color: white;
+  background-color: #FC9A05;
 }
 #message-form label {
   display: flex;
@@ -66,11 +72,14 @@ textarea {
   height: 30px;
   background-color: #ffb347;
 }
-#messages > div > div span:last-of-type {
+#messages > div > span:last-of-type {
   float: right;
 }
-#messages > div > div span:first-of-type {
+#messages > div > span:first-of-type {
   margin-right: 5px;
+}
+#messages > div > button {
+  float: right;
 }
 #messages p {
   margin: 0.5rem 0;
