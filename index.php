@@ -37,7 +37,7 @@ require_once('./guestbook/guestbook.php');
                 <div class="row">
                     <label class="form-label" for="message" >Message</label>                
                     <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
-                    <textarea class="form-control" rows="4" cols="24" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
+                    <textarea class="form-control" rows="4" cols="36" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
                 </div>
 
                 <input type="submit" name="submit" value="Submit">

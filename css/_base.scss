@@ -23,6 +23,7 @@ h1 {
     color: $sea-blue;
     font-size: 2.5rem;
     text-align: center;
+    margin-bottom: 50px;
 }
   
 main {
@@ -50,9 +51,8 @@ main {
 #message-form {
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 45%;
     padding: 30px;
-    margin-top: 100px;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -62,7 +62,7 @@ main {
 
     form {
         height: 320px;
-        width: 400px;
+        width: 600px;
         display: flex;
         flex-direction: column;
         justify-content: start;
@@ -79,7 +79,7 @@ main {
             display: flex;
         }
         input {
-            width: 180px;
+            width: 230px;
         }
         input[type=submit] {
             margin: 5px;
@@ -103,7 +103,7 @@ main {
 }
 
 #messages {
-    width: 80%;
+    width: 60%;
     border-radius: 10px;
     padding: 10px;
     margin-left: auto;
