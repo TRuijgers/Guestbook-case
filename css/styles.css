@@ -29,7 +29,7 @@ main {
 }
 
 .error-empty {
-  color: red;
+  color: rgb(208, 3, 3);
 }
 
 #message-form {
@@ -46,7 +46,7 @@ main {
 }
 #message-form form {
   height: 320px;
-  width: 400px;
+  width: 550px;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -64,7 +64,7 @@ main {
   display: flex;
 }
 #message-form form input {
-  width: 180px;
+  width: 222px;
 }
 #message-form form input[type=submit] {
   margin: 5px;
@@ -83,7 +83,7 @@ main {
 }
 
 #messages {
-  width: 80%;
+  width: 70%;
   border-radius: 10px;
   padding: 10px;
   margin-left: auto;
