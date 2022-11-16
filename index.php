@@ -14,7 +14,6 @@ require_once('./guestbook/guestbook.php');
     <script src="./scripts/main.js" defer></script>
 </head>
 
-
 <body>
     <main>
         <section id="message-form">
@@ -33,6 +32,14 @@ require_once('./guestbook/guestbook.php');
                 <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
                 <textarea name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
 
+                <button class="btn btn-primary" type="button" 
+                    data-toggle="collapse" data-target="#emojiBox" 
+                    aria-expanded="false" aria-controls="emojiBox">
+                    Button
+                </button>
+                <div id="emojiBox" class="collapse">
+                    
+                </div>
                 <input type="submit" name="submit" value="Submit">
             </form>
         </section>
