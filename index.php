@@ -14,7 +14,6 @@ require_once('./guestbook/guestbook.php');
     <script src="./scripts/main.js" defer></script>
 </head>
 
-
 <body>
     <main>
         <h1>Gastenboek</h1>
