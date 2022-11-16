@@ -25,4 +25,3 @@ async function deleteMessage(message) {
         
     })).then(response => console.log(response));
 }
-

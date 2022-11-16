@@ -17,28 +17,35 @@ require_once('./guestbook/guestbook.php');
 
 <body>
     <main>
+        <h1>Gastenboek</h1>
         <section id="message-form">
-            <h1>Gastenboek</h1>
             <form method="post" action="">
                 <p>Laat hier je bericht achter.</p>
-                <label for="firstName" >First Name</label>                
-                <span class="error-empty"><?php if (isset($firstNameError)) echo $firstNameError;?></span>
-                <input type="text" name="firstName" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>" required>
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label" for="firstName" >First Name</label>                
+                        <span class="error-empty"><?php if (isset($firstNameError)) echo $firstNameError;?></span>
+                        <input class="form-control" type="text" name="firstName" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>" required>
+                    </div>
+                    <div class="col">
+                        <label class="form-label" for="lastName" >Last Name</label>                 
+                        <span class="error-empty"><?php if (isset($lastNameError)) echo $lastNameError;?></span>
+                        <input class="form-control" type="text" name="lastName" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>" required>
+                    </div>
+                </div>
 
-                <label for="lastName" >Last Name</label>                 
-                <span class="error-empty"><?php if (isset($lastNameError)) echo $lastNameError;?></span>
-                <input type="text" name="lastName" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>" required>
-
-                <label for="message" >Message</label>                
-                <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
-                <textarea name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
+                <div class="row">
+                    <label class="form-label" for="message" >Message</label>                
+                    <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
+                    <textarea class="form-control" rows="4" cols="24" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
+                </div>
 
                 <input type="submit" name="submit" value="Submit">
             </form>
         </section>
             
         <section id="messages">
-            <section id="pagination" class="page navigation bg-light d-flex justify-content-center" >
+            <section id="pagination" class="page navigation d-flex justify-content-center" >
                 <ul class="pagination">
                 <?php
                     $limit = 10;
@@ -68,19 +75,22 @@ require_once('./guestbook/guestbook.php');
                 ?>
                 </ul>
             </section>
-            
-                <?php $messages = Guestbook::getMessages();
+            <div>
+            <?php $messages = Guestbook::getMessages();
                 
                 foreach (array_slice($messages, $start - 1, $limit) as $message) {
                     echo "<div>";
+                    echo "<button class=\"deleteMessage\">X</button>";
+                    echo "<p>";
                     echo "<span>${message['firstName']}</span>";
                     echo "<span>${message['lastName']}</span>";
                     echo "<span>${message['postDate']}</span>";
-                    echo "<button class=\"deleteMessage\">X</button>";
+                    echo "</p>";
                     echo "<p>${message['message']}</p>"; 
                     echo "</div>";
                 }
             ?>
+            </div>
         </section>
     </main>
 
