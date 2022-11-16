@@ -38,7 +38,8 @@ require_once('./guestbook/guestbook.php');
         </section>
             
         <section id="messages">
-            <section id="pagination" class="pagination bg-light d-flex justify-content-center" >
+            <section id="pagination" class="page navigation bg-light d-flex justify-content-center" >
+                <ul class="pagination">
                 <?php
                     $limit = 10;
                     $start = $_GET['page'] && $_GET['page'] > 1 ? 
@@ -47,20 +48,25 @@ require_once('./guestbook/guestbook.php');
 
                     $totalPages = ceil(count(Guestbook::getMessages()) / $limit);
                     if ($page > 1) {
-                        echo "<button class=\"page-item\" 
-                            id=\"previous\">&laquo;</button>";
+                        echo "<li class=\"page-item\" 
+                            id=\"previous\"><a class=\"page-link\" 
+                            href=\"#\" aria-label=\"Previous\">
+                            <span aria-hidden=\"true\">&laquo;</span></a></li>";
                     }
                     for($i = 0; $i < $totalPages; $i++) {
                         $num = $i + 1;
-                        echo "<button class=\"page-item\">
-                            <a class=\"page-link\" href=\"/?page=${num}\">
-                             ${num}</a></button>";
+                        echo "<li class=\"page-item\">
+                            <a class=\"page-link\" href=\"?page=${num}\">
+                             ${num}</a></li>";
                     }
                     if ($page < $totalPages){
-                        echo "<button class=\"page-item\" 
-                            id=\"next\">&raquo;</button>";
+                        echo "<li class=\"page-item\" 
+                            id=\"next\"><a class=\"page-link\" 
+                            href=\"#\" aria-label=\"Next\">
+                            <span aria-hidden=\"true\">&raquo;</span></a></li>";
                     }
                 ?>
+                </ul>
             </section>
             
                 <?php $messages = Guestbook::getMessages();
@@ -86,16 +92,14 @@ window.addEventListener('load', () => {
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
             let page = <?php echo $page; ?> + 1;
-            window.location.href = window.location.protocol + "//" + 
-            window.location.hostname + `/?page=${page}`;
+            window.location.href = `?page=${page}`;
         });
     }
 
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
             let page = <?php echo $page; ?> - 1 ;
-            window.location.href = window.location.protocol + "//" + 
-            window.location.hostname + `/?page=${page}`;
+            window.location.href = `?page=${page}`;
         });
     }
 });
