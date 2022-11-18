@@ -35,18 +35,21 @@ require_once('./guestbook/guestbook.php');
                 </div>
 
                 <div class="row">
-                    <label class="form-label" for="message" >Message</label>                
-                    <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
-                    <textarea id="message" class="form-control" rows="4" cols="34" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
-                </div>
-
-
-                <button class="btn btn-primary" type="button" 
-                    id="emojiBoxBtn">
-                    Button
-                </button>
-                <div id="emojiBox">
-                    
+                    <div class="col">
+                        <label class="form-label" for="message" >Message</label>                
+                        <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
+                        <textarea id="message" class="form-control" rows="4" cols="34" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
+                    </div>
+                
+                    <div class="col-auto">
+                        <button class="btn btn-outline-primary btn-sm" type="button" 
+                            id="emojiBoxBtn">
+                            &#128512; &#129095;
+                        </button>
+                        <div id="emojiBox">
+                            
+                        </div>
+                    </div>
                 </div>
                 <input type="submit" name="submit" value="Submit">
             </form>
@@ -87,6 +90,7 @@ require_once('./guestbook/guestbook.php');
             <?php $messages = Guestbook::getMessages();
                 
                 foreach (array_slice($messages, $start - 1, $limit) as $message) {
+
                     echo '<div><button class="deleteMessage">X</button><p>' .
                         "<span>${message['firstName']}</span>
                         <span>${message['lastName']}</span>" . 

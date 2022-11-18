@@ -139,6 +139,20 @@ main {
   color: white;
 }
 
+#emojiBox {
+  display: none;
+  position: absolute;
+  width: 15%;
+}
+
+#emojiBoxBtn {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 2rem;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

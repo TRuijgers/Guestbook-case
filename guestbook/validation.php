@@ -2,16 +2,17 @@
 require_once('guestbook.php');
 
 function confirmInput($data){
+    
     global $firstNameError; 
     global $lastNameError;
     global $messageError;
     $errorArray = [];
 
-    if (empty($_POST["message"])){
+    if (empty($_POST["firstName"])){
         $firstNameError = "* Your first name is required.";
         array_push($errorArray, $firstNameError);
     }
-    if (empty($_POST["message"])){
+    if (empty($_POST["lastName"])){
         $lastNameError = "* Your last name is required.";
         array_push($errorArray, $lastNameError);
     }
@@ -19,6 +20,7 @@ function confirmInput($data){
         $messageError = "* Please type a message before submitting.";
         array_push($errorArray, $messageError);
     }
+   
 
     if (count($errorArray) == 0){
         Guestbook::addMessage(validate($data)); 
@@ -34,6 +36,7 @@ function validate($data) {
         $value = htmlspecialchars($value);
         $data[$key] = $value;
     } 
+    return $data;
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
