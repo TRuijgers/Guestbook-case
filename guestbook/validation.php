@@ -7,11 +7,11 @@ function confirmInput($data){
     global $messageError;
     $errorArray = [];
 
-    if (empty($_POST["message"])){
+    if (empty($_POST["firstName"])){
         $firstNameError = "* Your first name is required.";
         array_push($errorArray, $firstNameError);
     }
-    if (empty($_POST["message"])){
+    if (empty($_POST["lastName"])){
         $lastNameError = "* Your last name is required.";
         array_push($errorArray, $lastNameError);
     }
@@ -33,7 +33,8 @@ function validate($data) {
         $value = stripslashes($value);
         $value = htmlspecialchars($value);
         $data[$key] = $value;
-    } 
+    }
+    return $data;
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {

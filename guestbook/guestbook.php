@@ -16,7 +16,6 @@ class Guestbook {
             $data['lastName'], 
             date('d-m-Y'),
             $data['message']);
-
         array_unshift($messageArray, $message);
         file_put_contents($path, json_encode($messageArray, JSON_PRETTY_PRINT)); 
     }
