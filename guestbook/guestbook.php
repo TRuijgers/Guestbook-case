@@ -3,12 +3,12 @@ require_once('classes/Message.php');
 require_once('validation.php');
 
 class Guestbook {
+
     public static function getFilePath() {
         return './berichten/berichten.json';
     }
 
     public static function addMessage($data) {
-        // TODO: berichten toevoegen
         $path = Guestbook::getFilePath();
         $messageArray = Guestbook::getMessages();
     
@@ -16,13 +16,12 @@ class Guestbook {
             $data['lastName'], 
             date('d-m-Y'),
             $data['message']);
-    
-        array_push($messageArray, $message);
+
+        array_unshift($messageArray, $message);
         file_put_contents($path, json_encode($messageArray, JSON_PRETTY_PRINT)); 
     }
 
     public static function getMessages() : array {
-        // TODO: berichten
         $path = Guestbook::getFilePath();
         $file = file_get_contents($path);
         
@@ -31,10 +30,6 @@ class Guestbook {
 
     public static function deleteMessage() {
         // TODO: verwijder bericht
-        // $path = Guestbook::getFilePath();
-        // $file = json_decode(file_get_contents($path . 'berichten.json'));
-        // array_splice($file, array_search($message), 1);
-        return 'delete function';
     }
 
     public static function updateMessage() {

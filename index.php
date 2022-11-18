@@ -15,7 +15,6 @@ require_once('./guestbook/guestbook.php');
     <script src="./scripts/main.js" defer></script>
 </head>
 
-
 <body>
     <main>
         <h1>Gastenboek</h1>
@@ -36,13 +35,23 @@ require_once('./guestbook/guestbook.php');
                 </div>
 
                 <div class="row">
+
                     <div class="col">
                         <label class="form-label" for="message" >Message</label>                
                         <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
-                        <textarea class="form-control" rows="4" cols="60" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
+                        <textarea id="message" class="form-control" rows="4" cols="60" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
                     </div>
+
                 </div>
 
+
+                <button class="btn btn-primary" type="button" 
+                    id="emojiBoxBtn">
+                    Button
+                </button>
+                <div id="emojiBox">
+                    
+                </div>
                 <input type="submit" name="submit" value="Submit">
             </form>
         </section>
@@ -82,15 +91,11 @@ require_once('./guestbook/guestbook.php');
             <?php $messages = Guestbook::getMessages();
                 
                 foreach (array_slice($messages, $start - 1, $limit) as $message) {
-                    echo "<div>";
-                    echo "<button class=\"deleteMessage\">X</button>";
-                    echo "<p>";
-                    echo "<span>${message['firstName']}</span>";
-                    echo "<span>${message['lastName']}</span>";
-                    echo "<span>${message['postDate']}</span>";
-                    echo "</p>";
-                    echo "<p>${message['message']}</p>"; 
-                    echo "</div>";
+                    echo '<div><button class="deleteMessage">X</button><p>' .
+                        "<span>${message['firstName']}</span>
+                        <span>${message['lastName']}</span>" . 
+                        "<span>${message['postDate']}</span></p>"
+                        . "<p>${message['message']}</p></div>";
                 }
             ?>
             </div>
