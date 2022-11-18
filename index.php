@@ -35,9 +35,13 @@ require_once('./guestbook/guestbook.php');
                 </div>
 
                 <div class="row">
-                    <label class="form-label" for="message" >Message</label>                
-                    <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
-                    <textarea id="message" class="form-control" rows="4" cols="34" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
+
+                    <div class="col">
+                        <label class="form-label" for="message" >Message</label>                
+                        <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
+                        <textarea id="message" class="form-control" rows="4" cols="60" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
+                    </div>
+
                 </div>
 
 
