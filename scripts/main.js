@@ -8,6 +8,7 @@ const messageDiv = document.querySelector('#messages>div');
 
 
 window.addEventListener('load', () => {
+    emojiBox.style.display = 'none';
     messageDiv.addEventListener('click', (event) => {
         if (event.target.tagName == 'BUTTON' && 
             event.target.classList.contains('deleteMessage')) {
@@ -17,8 +18,9 @@ window.addEventListener('load', () => {
     });
 
     emojiBoxBtn.addEventListener('click', () => {
-        if (emojiBox.style.display == 'none'){
-            emojiBox.style.display = 'block';
+        
+        if (emojiBox.style.display == 'none') {
+            emojiBox.style.display = 'inline-block';
         } else {
             emojiBox.style.display = 'none';
         }

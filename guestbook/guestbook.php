@@ -11,6 +11,7 @@ class Guestbook {
     public static function addMessage($data) {
         $path = Guestbook::getFilePath();
         $messageArray = Guestbook::getMessages();
+       
     
         $message = new Message($data['firstName'], 
             $data['lastName'], 
@@ -18,6 +19,7 @@ class Guestbook {
             $data['message']);
 
         array_unshift($messageArray, $message);
+
         file_put_contents($path, json_encode($messageArray, JSON_PRETTY_PRINT)); 
     }
 
