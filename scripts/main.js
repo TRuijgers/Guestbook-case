@@ -3,6 +3,8 @@
 let deleteBtns = document.querySelectorAll('deleteMessage');
 const messageDiv = document.getElementById('messages');
 const emojiBox = document.getElementById('emojiBox');
+const emojiBoxBtn = document.getElementById('emojiBoxBtn');
+const message = document.getElementById('message');
 
 window.addEventListener('load', () => {
     messageDiv.addEventListener('click', (event) => {
@@ -13,11 +15,27 @@ window.addEventListener('load', () => {
         }
     });
 
+    emojiBoxBtn.addEventListener('click', () => {
+        if (emojiBox.style.display == 'none'){
+            emojiBox.style.display = 'block';
+        } else {
+            emojiBox.style.display = 'none';
+        }
+    })
+
     let iconCode;
     for (let i = 128512; i <= 128581; i++ ) {
         iconCode = `&#${i};`;
         createEmoji(emojiBox, iconCode);
     }
+
+    emojiBox.addEventListener('click', (e) => {
+        console.log(message.value);
+        if ( e.target.tagName == "SPAN") {
+            console.log('test');
+            message.value += e.target.textContent;
+        } 
+    })
 });
 
 async function deleteMessage(message) {
@@ -35,6 +53,7 @@ async function deleteMessage(message) {
 
 function createEmoji(parent, icon) {
     let span = document.createElement('span');
+    span.className = "emoji";
     span.innerHTML = icon;
     parent.appendChild(span);
 }
