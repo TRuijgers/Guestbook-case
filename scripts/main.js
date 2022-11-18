@@ -1,10 +1,11 @@
 "use strict"
 
 let deleteBtns = document.querySelectorAll('deleteMessage');
-const messageDiv = document.getElementById('messages');
 const emojiBox = document.getElementById('emojiBox');
 const emojiBoxBtn = document.getElementById('emojiBoxBtn');
 const message = document.getElementById('message');
+const messageDiv = document.querySelector('#messages>div');
+
 
 window.addEventListener('load', () => {
     messageDiv.addEventListener('click', (event) => {
@@ -57,3 +58,4 @@ function createEmoji(parent, icon) {
     span.innerHTML = icon;
     parent.appendChild(span);
 }
+

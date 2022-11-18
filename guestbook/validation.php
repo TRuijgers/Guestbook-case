@@ -21,7 +21,7 @@ function confirmInput($data){
     }
 
     if (count($errorArray) == 0){
-        validate($data); 
+        Guestbook::addMessage(validate($data)); 
     } else {
         return $errorArray;
     }
@@ -33,8 +33,7 @@ function validate($data) {
         $value = stripslashes($value);
         $value = htmlspecialchars($value);
         $data[$key] = $value;
-    }
-    Guestbook::addMessage($data);
+    } 
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
