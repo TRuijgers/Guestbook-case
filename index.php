@@ -11,6 +11,7 @@ require_once('./guestbook/guestbook.php');
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="./css/styles.css" rel="stylesheet">
+    
     <script src="./scripts/main.js" defer></script>
 </head>
 
@@ -36,9 +37,17 @@ require_once('./guestbook/guestbook.php');
                 <div class="row">
                     <label class="form-label" for="message" >Message</label>                
                     <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
-                    <textarea class="form-control" rows="4" cols="34" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
+                    <textarea id="message" class="form-control" rows="4" cols="34" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
                 </div>
 
+
+                <button class="btn btn-primary" type="button" 
+                    id="emojiBoxBtn">
+                    Button
+                </button>
+                <div id="emojiBox">
+                    
+                </div>
                 <input type="submit" name="submit" value="Submit">
             </form>
         </section>
