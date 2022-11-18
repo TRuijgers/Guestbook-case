@@ -78,15 +78,11 @@ require_once('./guestbook/guestbook.php');
             <?php $messages = Guestbook::getMessages();
                 
                 foreach (array_slice($messages, $start - 1, $limit) as $message) {
-                    echo "<div>";
-                    echo "<button class=\"deleteMessage\">X</button>";
-                    echo "<p>";
-                    echo "<span>${message['firstName']}</span>";
-                    echo "<span>${message['lastName']}</span>";
-                    echo "<span>${message['postDate']}</span>";
-                    echo "</p>";
-                    echo "<p>${message['message']}</p>"; 
-                    echo "</div>";
+                    echo '<div><button class="deleteMessage">X</button><p>' .
+                        "<span>${message['firstName']}</span>
+                        <span>${message['lastName']}</span>" . 
+                        "<span>${message['postDate']}</span></p>"
+                        . "<p>${message['message']}</p></div>";
                 }
             ?>
             </div>
