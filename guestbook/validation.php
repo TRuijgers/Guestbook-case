@@ -1,8 +1,7 @@
 <?php declare(strict_types=1);
 require_once('guestbook.php');
 
-function confirmInput($data){
-    
+function confirmInput(array $data){
     global $firstNameError; 
     global $lastNameError;
     global $messageError;
@@ -21,15 +20,17 @@ function confirmInput($data){
         array_push($errorArray, $messageError);
     }
    
-
     if (count($errorArray) == 0){
         Guestbook::addMessage(validate($data)); 
+        unset($_POST["firstName"]);
+        unset($_POST["lastName"]);
+        unset($_POST["message"]);
     } else {
         return $errorArray;
     }
 }
 
-function validate($data) {
+function validate(array $data) : array {
     foreach($data as $key => $value) {
         $value = trim($value);
         $value = stripslashes($value);

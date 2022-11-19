@@ -1,6 +1,7 @@
+/* @import "../node_modules/bootstrap/scss/bootstrap"; */
 body {
   background-color: #D8EFF8;
-  padding-top: 5%;
+  padding-top: 1.5%;
 }
 
 header {
@@ -14,6 +15,7 @@ h1 {
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 3rem;
+  text-shadow: 0 0 2px black;
 }
 
 main {
@@ -90,6 +92,9 @@ main {
 #message-form form .col {
   padding: 0;
 }
+#message-form form .col-auto {
+  padding: 0;
+}
 
 #messages {
   width: 60%;
@@ -152,8 +157,19 @@ main {
 
 #emojiBox {
   display: none;
+  flex-wrap: wrap;
+  justify-content: space-around;
   position: absolute;
   width: 15%;
+  background-color: white;
+  border: 1px solid black;
+  max-height: 10rem;
+  max-width: 10rem;
+  overflow-y: scroll;
+}
+#emojiBox > span {
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 #emojiBoxBtn {
@@ -161,7 +177,24 @@ main {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+#emojiBoxBtn > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  background-color: #ffb347;
+  border-radius: 50%;
+  width: 200%;
+  height: 200%;
+  transform: rotateZ(90deg);
+  transform-origin: 40% 40%;
+  font-size: 1.2rem;
+  font-weight: 900;
+  padding-bottom: 0.35rem;
+  text-shadow: 0 0 1px black;
 }
 
 *, *::before, *::after {
