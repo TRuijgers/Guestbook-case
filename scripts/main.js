@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
     emojiBoxBtn.addEventListener('click', () => {
         
         if (emojiBox.style.display == 'none') {
-            emojiBox.style.display = 'inline-block';
+            emojiBox.style.display = 'flex';
         } else {
             emojiBox.style.display = 'none';
         }
