@@ -22,12 +22,4 @@ class Guestbook {
         
         return (array) json_decode($file, null, 512, JSON_OBJECT_AS_ARRAY);
     }
-
-    public static function deleteMessage() {
-        // TODO: verwijder bericht
-    }
-
-    public static function updateMessage() {
-        // TODO: bewerk bericht
-    }
 }

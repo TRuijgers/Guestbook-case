@@ -45,7 +45,7 @@ main {
 #message-form {
   display: flex;
   justify-content: center;
-  width: 45%;
+  width: 45vw;
   padding: 2rem;
   margin-bottom: 1.25rem;
   margin-left: auto;
@@ -73,7 +73,7 @@ main {
   display: flex;
 }
 #message-form form input[type=submit] {
-  width: 40%;
+  width: 30%;
   margin: 0.3rem;
   background-color: #110933;
   font-weight: bold;
@@ -94,7 +94,8 @@ main {
 }
 #message-form form .row {
   width: 90%;
-  margin-left: 0.8rem;
+  left: 4%;
+  position: relative;
 }
 #message-form form .col {
   padding: 0;
@@ -104,7 +105,7 @@ main {
 }
 
 #messages {
-  width: 60%;
+  width: 60vw;
   border-radius: 0.6rem;
   padding: 0.7rem;
   margin-left: auto;
@@ -148,14 +149,12 @@ main {
   border-radius: 0.4rem;
   border: 1px solid rgb(208, 3, 3);
   font-size: 1rem;
-  padding-bottom: 0.3rem;
   text-align: center;
   position: absolute;
   height: 1.7rem;
-  width: 1.5rem;
-  left: 95%;
-  right: 5%;
-  top: 4%;
+  width: 1.7rem;
+  left: 96%;
+  margin-top: -1.9rem;
 }
 #messages > div div > button:hover {
   background-color: rgb(208, 3, 3);
@@ -167,12 +166,14 @@ main {
   flex-wrap: wrap;
   justify-content: space-around;
   position: absolute;
-  width: 15%;
+  width: 40%;
   background-color: white;
   border: 1px solid black;
-  max-height: 10rem;
+  max-height: 8rem;
   max-width: 10rem;
   overflow-y: scroll;
+  right: 5%;
+  top: 48%;
 }
 #emojiBox > span {
   font-size: 1.2rem;
@@ -184,24 +185,26 @@ main {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin-top: 1.5rem;
+  margin-top: 4.6rem;
   text-align: center;
+  position: absolute;
+  right: 9%;
 }
 #emojiBoxBtn > span {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
-  background-color: #ffb347;
-  border-radius: 50%;
-  width: 200%;
-  height: 200%;
-  transform: rotateZ(90deg);
-  transform-origin: 40% 40%;
+  background-color: white;
+  border-radius: 10%;
+  width: 2.2rem;
+  height: 2.2rem;
   font-size: 1.2rem;
   font-weight: 900;
-  padding-bottom: 0.35rem;
-  text-shadow: 0 0 1px black;
+  padding-bottom: 0.25rem;
+}
+#emojiBoxBtn > span:hover {
+  background-color: lightgray;
+  border: 1px solid gray;
 }
 
 *, *::before, *::after {

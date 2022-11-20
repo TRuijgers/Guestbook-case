@@ -26,12 +26,12 @@ require_once('./guestbook/guestbook.php');
             <form method="post" action="">
                 <div class="row">
                     <div class="col">
-                        <label class="form-label" for="firstName" >First Name</label>                
+                        <label class="form-label" for="firstName" >Voornaam</label>                
                         <span class="error-empty"><?php if (isset($firstNameError)) echo $firstNameError;?></span>
                         <input class="form-control" type="text" name="firstName" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>" required>
                     </div>
                     <div class="col">
-                        <label class="form-label" for="lastName" >Last Name</label>                 
+                        <label class="form-label" for="lastName" >Achternaam</label>                 
                         <span class="error-empty"><?php if (isset($lastNameError)) echo $lastNameError;?></span>
                         <input class="form-control" type="text" name="lastName" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>" required>
                     </div>
@@ -39,16 +39,23 @@ require_once('./guestbook/guestbook.php');
 
                 <div class="row">
                     <div class="col">
-                    <label class="form-label" for="message" >Message</label>                
+                    <label class="form-label" for="message" >Bericht</label>                
                         <span class="error-empty"><?php if (isset($messageError)) echo $messageError;?></span>
                         <div class="editor-container">
                             <textarea id="summernote" class="form-control" rows="4" cols="60" name="message" required><?php if (isset($_POST['message'])) echo $_POST['message'];?></textarea>
                         </div>
                     </div>
+                    <div class="col-auto">
+                    <button class="btn btn-sm" type="button" 
+                        id="emojiBoxBtn">
+                        <span>&#128512;</span>
+                    </button>
+                    <div id="emojiBox">
+                    </div>
+                </div>
                 </div>
                 <script>
                     $('#summernote').summernote({
-                        placeholder: 'Laat hier je bericht achter.',
                         tabsize: 2,
                         height: 120,
                         toolbar: [
@@ -59,29 +66,7 @@ require_once('./guestbook/guestbook.php');
                         ]
                     });
                 </script>
-
-            <div class="row">
-                <div class="col">
-                    <label class="form-label" for="message">Message</label>                
-                    <span class="error-empty">
-                        <?php if (isset($messageError)) echo $messageError;?>
-                    </span>
-                    <textarea id="message" class="form-control" rows="4" cols="34" 
-                        name="message" required>
-                            <?php echo $_POST['message'] ?? '';?>
-                    </textarea>
-                </div>
-            
-                <div class="col-auto">
-                    <button class="btn btn-sm" type="button" 
-                        id="emojiBoxBtn">
-                        <span>&rang;&rang;</span>
-                    </button>
-                    <div id="emojiBox">
-                    </div>
-                </div>
-            </div>
-            <input type="submit" name="submit" value="Submit">
+            <input type="submit" name="submit" value="Verzenden">
         </form>
     </section>
         

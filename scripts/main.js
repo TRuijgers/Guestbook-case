@@ -3,7 +3,7 @@
 let deleteBtns = document.querySelectorAll('deleteMessage');
 const emojiBox = document.getElementById('emojiBox');
 const emojiBoxBtn = document.getElementById('emojiBoxBtn');
-const message = document.getElementById('summernote');
+const message = document.querySelector('.note-editable');
 const messageDiv = document.querySelector('#messages>div');
 
 
@@ -12,6 +12,7 @@ window.addEventListener('load', () => {
     messageDiv.addEventListener('click', (event) => {
         if (event.target.tagName == 'BUTTON' && 
             event.target.classList.contains('deleteMessage')) {
+            console.log(event.target.closest('div'));
             messageDiv.removeChild(event.target.closest('div'));
             deleteMessage(event.target.parentElement.lastChild.textContent);
         }
@@ -33,10 +34,8 @@ window.addEventListener('load', () => {
     }
 
     emojiBox.addEventListener('click', (e) => {
-        console.log(message.value);
         if ( e.target.tagName == "SPAN") {
-            console.log('test');
-            message.value += e.target.textContent;
+            message.textContent += e.target.textContent;
         } 
     })
 });
@@ -44,7 +43,6 @@ window.addEventListener('load', () => {
 async function deleteMessage(message) {
     let formData = new FormData();
     formData.append('delete', message);
-    
     await fetch(new Request('http://guestbook.local/guestbook/requestApi.php',
      {
         method: 'POST',
