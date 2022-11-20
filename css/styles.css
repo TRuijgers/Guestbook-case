@@ -35,6 +35,13 @@ main {
   color: rgb(208, 3, 3);
 }
 
+.editor-container {
+  width: 90%;
+  background-color: white;
+  border-radius: 2%;
+  margin-bottom: 2rem;
+}
+
 #message-form {
   display: flex;
   justify-content: center;

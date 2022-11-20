@@ -12,7 +12,6 @@ class Guestbook {
             $data['lastName'], 
             date('h:i:s d F Y'),
             $data['message']);
-
         array_unshift($messageArray, $message);
 
         file_put_contents(self::FILEPATH, json_encode($messageArray, JSON_PRETTY_PRINT)); 

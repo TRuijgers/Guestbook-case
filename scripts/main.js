@@ -3,7 +3,7 @@
 let deleteBtns = document.querySelectorAll('deleteMessage');
 const emojiBox = document.getElementById('emojiBox');
 const emojiBoxBtn = document.getElementById('emojiBoxBtn');
-const message = document.getElementById('message');
+const message = document.getElementById('summernote');
 const messageDiv = document.querySelector('#messages>div');
 
 
