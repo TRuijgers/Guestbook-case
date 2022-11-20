@@ -12,7 +12,6 @@ class Guestbook {
             $data['lastName'], 
             date('h:i:s d F Y'),
             $data['message']);
-
         array_unshift($messageArray, $message);
 
         file_put_contents(self::FILEPATH, json_encode($messageArray, JSON_PRETTY_PRINT)); 
@@ -22,13 +21,5 @@ class Guestbook {
         $file = file_get_contents(self::FILEPATH);
         
         return (array) json_decode($file, null, 512, JSON_OBJECT_AS_ARRAY);
-    }
-
-    public static function deleteMessage() {
-        // TODO: verwijder bericht
-    }
-
-    public static function updateMessage() {
-        // TODO: bewerk bericht
     }
 }
