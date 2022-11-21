@@ -7,7 +7,7 @@ class Message implements \JsonSerializable, IMessage {
     private $postDate;
     private $message;
 
-    function __construct($firstName, $lastName, $postDate, $message ) {
+    function __construct(string $firstName, string $lastName, $postDate, string $message ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->message = $message;
