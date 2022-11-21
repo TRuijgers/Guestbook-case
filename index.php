@@ -47,9 +47,7 @@ require_once('./guestbook/guestbook.php');
                     <span class="error-empty">
                         <?php if (isset($messageError)) echo $messageError;?>
                     </span>
-                    <textarea id="message" class="form-control" rows="4" cols="34" 
-                        name="message" required><?php echo $_POST['message'] ?? '';?>
-                    </textarea>
+                    <textarea id="message" class="form-control" rows="4" cols="34" name="message" required><?php echo $_POST['message'] ?? '';?></textarea>
                 </div>
             
                 <div class="col-auto">
