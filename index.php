@@ -48,15 +48,14 @@ require_once('./guestbook/guestbook.php');
                         <?php if (isset($messageError)) echo $messageError;?>
                     </span>
                     <textarea id="message" class="form-control" rows="4" cols="34" 
-                        name="message" required>
-                            <?php echo $_POST['message'] ?? '';?>
+                        name="message" required><?php echo $_POST['message'] ?? '';?>
                     </textarea>
                 </div>
             
                 <div class="col-auto">
                     <button class="btn btn-sm" type="button" 
                         id="emojiBoxBtn">
-                        <span>&rang;&rang;</span>
+                        <span>&#128512;</span>
                     </button>
                     <div id="emojiBox">
                     </div>

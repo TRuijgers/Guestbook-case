@@ -44,8 +44,8 @@ window.addEventListener('load', () => {
 async function deleteMessage(message) {
     let formData = new FormData();
     formData.append('delete', message);
-    
-    await fetch(new Request('http://guestbook.local/guestbook/requestApi.php',
+    console.log(window.location.pathname);
+    await fetch(new Request('./guestbook/requestApi.php',
      {
         method: 'POST',
         credentials: 'same-origin',
