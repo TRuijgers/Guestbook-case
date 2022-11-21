@@ -23,7 +23,7 @@ require_once('./guestbook/guestbook.php');
             <p>Laat hier je bericht achter.</p>
             <div class="row">
                 <div class="col">
-                    <label class="form-label" for="firstName" >First Name</label>                
+                    <label class="form-label" for="firstName" >Voornaam</label>                
                     <span class="error-empty">
                         <?php if (isset($firstNameError)) echo $firstNameError;?>
                     </span>
@@ -32,7 +32,7 @@ require_once('./guestbook/guestbook.php');
                         autofocus required>
                 </div>
                 <div class="col">
-                    <label class="form-label" for="lastName" >Last Name</label>                 
+                    <label class="form-label" for="lastName" >Achternaam</label>                 
                     <span class="error-empty">
                         <?php if (isset($lastNameError)) echo $lastNameError;?>
                     </span>
@@ -43,7 +43,7 @@ require_once('./guestbook/guestbook.php');
 
             <div class="row">
                 <div class="col">
-                    <label class="form-label" for="message">Message</label>                
+                    <label class="form-label" for="message">Bericht</label>                
                     <span class="error-empty">
                         <?php if (isset($messageError)) echo $messageError;?>
                     </span>
@@ -61,7 +61,7 @@ require_once('./guestbook/guestbook.php');
                     </div>
                 </div>
             </div>
-            <input type="submit" name="submit" value="Submit">
+            <input type="submit" name="submit" value="Verzenden">
         </form>
     </section>
         
